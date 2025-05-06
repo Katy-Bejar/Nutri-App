@@ -1,4 +1,6 @@
-import { MacroType, macroConfig } from '@/types';
+'use client';
+
+import { MacroType } from '@/types';
 
 interface MacroCardProps {
   type: MacroType;
@@ -6,14 +8,14 @@ interface MacroCardProps {
   percentage: number;
 }
 
-const config = {
-  protein: { color: "nutriProtein", label: "Proteínas" },
-  carbs: { color: "nutriCarbs", label: "Carbos" },
-  fats: { color: "nutriFats", label: "Grasas" },
-} as const; // <-- Importantísimo el 'as const'
+const macroConfig = {
+  protein: { color: 'nutriProtein', label: 'Proteínas' },
+  carbs: { color: 'nutriCarbs', label: 'Carbos' },
+  fats: { color: 'nutriFats', label: 'Grasas' }
+} as const;
 
 export default function MacroCard({ type, grams, percentage }: MacroCardProps) {
-    const { color, label } = macroConfig[type];
+  const { color, label } = macroConfig[type];
 
   return (
     <div className={`bg-${color}-50 p-4 rounded-lg text-center`}>
